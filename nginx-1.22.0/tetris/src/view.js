@@ -8,7 +8,7 @@ export default class View {
         '6': 'green',
         '7': 'yellow'
     }
-    cols = 10;
+    cols = 12;
     rows = 20;
 
     constructor() {
@@ -62,13 +62,6 @@ export default class View {
         this.contextPanel.font = '14px "Press Start 2P"';
     }
 
-    renderStart(){
-        this.contextSettingsOne();
-        this.contextPlayField.fillText('ENTER', this.playfieldWidth/2, this.playfieldHeight/2);
-        this.contextPlayField.fillText('to', this.playfieldWidth/2, this.playfieldHeight/2+48);
-        this.contextPlayField.fillText('Play', this.playfieldWidth/2, this.playfieldHeight/2+96);
-    }
-
     renderGameOver({score}){
         this.clearScene()
         this.contextSettingsOne();
@@ -81,6 +74,7 @@ export default class View {
     }
 
     renderPlayField({playfield}){
+        this.contextSettingsOne()
         for (let y = 0; y < playfield.length; y++) {
             for (let x = 0; x < playfield[y].length; x++) {
                 if(playfield[y][x]){

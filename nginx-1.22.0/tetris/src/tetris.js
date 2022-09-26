@@ -22,7 +22,7 @@ export default class Tetris {
     createPlayfield(){
         const playfield = new Array(20);
         for(let i = 0; i < 20; i++){
-            playfield[i] = new Array(10).fill(0);
+            playfield[i] = new Array(12).fill(0);
         }
         return playfield
     }
@@ -83,7 +83,7 @@ export default class Tetris {
 
     clearLines(){
         const rows = 20;
-        const cols = 10;
+        const cols = 12;
         let lines = [];
 
         for (let y = rows -1; y >= 0; y--) {
@@ -182,7 +182,7 @@ export default class Tetris {
                 //blocks[y][x] - > шобы проверить, что там есть единица в blocks, а мы не вышли за границу просто так по x y
                 //хрень в скобках - выход за границу
                 // хрень последняя в условии - коллизия снизу
-                if(blocks[y][x] && (figureY+y >= 0 || figureX+x > 9 || figureX+x < 0 ) &&
+                if(blocks[y][x] && (figureY+y >= 0 || figureX+x > 11 || figureX+x < 0 ) &&
                     ((this.playfield[figureY+y] === undefined || this.playfield[figureY+y][figureX+x] === undefined)
                         || this.playfield[figureY+y][figureX+x])){
                     return true

@@ -3,51 +3,36 @@ export default class Controller {
         this.tetris = tetris;
         this.view = view;
         this.intervalId = null;
-        this.isPlay = false;
-
         document.addEventListener('keydown', event => {
             const state = this.tetris.getState();
 
             switch (event.keyCode){
                 case 65: //A left
-                    if(this.isPlay) {
-                        this.tetris.moveLeft();
-                        this.render();
-                    }
+                    this.tetris.moveLeft();
+                    this.render();
                     break;
                 case 83: //S down
-                    if(this.isPlay) {
-                        this.stopTimer()
-                        this.tetris.moveDown();
-                        this.render();
-                    }
+                    this.stopTimer()
+                    this.tetris.moveDown();
+                    this.render();
                     break;
                 case 68: //D right
-                    if(this.isPlay) {
-                        this.tetris.moveRight();
-                        this.render();
-                    }
+                    this.tetris.moveRight();
+                    this.render();
                     break;
                 case 69: //E rotate
-                    if(this.isPlay) {
-                        this.tetris.rotate();
-                        this.render();
-                    }
+                    this.tetris.rotate();
+                    this.render();
                     break;
                 case 70: //F fastDown
-                    if(this.isPlay) {
-                        this.tetris.moveFastDown();
-                        this.render();
-                    }
+                    this.tetris.moveFastDown();
+                    this.render();
+
                     break;
                 case 13: //Enter
                     if(state.isGameOver){
                         this.addRecords(state);
                         document.location.replace('records.html');
-                    } else if(!this.isPlay){
-                        this.isPlay = true;
-                        this.startTimer();
-                        this.render();
                     }
                     break;
             }
@@ -59,8 +44,8 @@ export default class Controller {
                     break;
             }
         });
-
-        this.view.renderStart();
+        this.view.renderGame(this.tetris.getState())
+        this.startTimer();
     }
 
     stopTimer(){
@@ -98,7 +83,7 @@ export default class Controller {
         const state = this.tetris.getState();
         if(state.isGameOver) {
             this.view.renderGameOver(state)
-        } else if (this.isPlay) {
+        } else {
             this.view.renderGame(state)
         }
     }
