@@ -1,1 +1,0 @@
-document.location.replace('html/username.html');
