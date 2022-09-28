@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>model</title>
+</head>
+<body>
+    <section class="file-loads">
+        <h1>{{ model_name }}</h1>
+        <div class="load-form">
+            <form method="post" enctype="multipart/form-data">
+                <input type="text" name="assignment">
+                <input type="file" id="img-1" name="assignment_file">
+                <!--      <input type="submit">-->
+                <button class="btn" onclick="perform()">Submit</button>
+            </form>
+        </div>
+        <div class="load-res"></div>
+    </section>
+        <script>
+            function perform(){
+                const files = document.getElementById("img-1").files
+                const formData = new FormData()
+                const endPoint = '/models/'+document.querySelector("h1").textContent
+                formData.append('image', files[0])
+
+                $.ajax({
+                    type: "POST",
+                    url: endPoint,
+                    data: formData,
+                    contentType: false,
+                    cache: false,
+                    processData: false,
+                    success: function (data){
+                        swal("Converted Text", data.text)
+                    }
+                })
+
+                const load_res = document.querySelector(".load-res")
+                const imgContainer = document.createElement("div")
+                imgContainer.className = "image"
+                const image = document.createElement("img");
+                image.src = "/static/temp/temp.jpg"
+                imgContainer.append(image)
+                load_res.append(imgContainer)
+            }
+        </script>
+</body>
+</html>
