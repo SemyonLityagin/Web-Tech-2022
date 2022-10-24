@@ -1,0 +1,53 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Библиотека
+        link(rel='stylesheet', href='/stylesheets/editBook.css')
+        link(rel="stylesheet", href="/font-awesome-4.7.0/css/font-awesome.min.css")
+
+    body
+        header
+            div(class="nav")
+                a(class="active" href="http://localhost:3000")
+                    i(class="fa fa-eercast fa-2x" aria-hidden="true") Home
+
+        section(class="edit-books")
+            h1 Информация
+            div(class="edit-container")
+                div(class="card")
+                    form(class="edit-form" id=book.id)
+                        div(class="title") Название:
+                        input(class="title" id="title" type='text', name='title', value=book.title, required="required")
+                        div(class="author") Автор:
+                        input(class="author" id="author" type='text', name='author', value=book.author, required="required")
+                        div(class="year") Год издания:
+                        input(class="year" id="year" type='number', name='year', value=book.year min="1000", required="required")
+                        button(class="change" type="submit") подтвердить изменения
+
+                    //div(class="title") #{book.title}
+                    //div(class="author") Author: #{book.author}
+                    //div(class="year") Year: #{book.year}
+                    //div(class="state") #{book.state}
+
+                div(class="card")
+                    - if(book.state === "на руках")
+                        div(class="title") находится у
+                        div(class="name") #{book.personCard.name}
+                        div(class="returnDate") #{book.personCard.returnDate}
+                        button(class="back") вернуть
+                    -else
+                        dialog(class="favDialog")
+                            form(method='dialog')
+                                p
+                                    label Имя:
+                                        input(class="name" type='text', name='name', value=book.personCard.name,)
+                                p
+                                    label Дата возврата:
+                                        input(class="returnDate" type='date', name='returnDate', value=book.personCard.returnDate)
+                                div
+                                    button(class="cancel") отмена
+                                    button(class="confirm") подтвердить
+                        button(class="get") взять книгу
+        script
+            include ../public/javascript/editBook.js

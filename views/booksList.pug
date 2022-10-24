@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Библиотека
+        link(rel='stylesheet', href='/stylesheets/booksList.css')
+        link(rel="stylesheet", href="/font-awesome-4.7.0/css/font-awesome.min.css")
+    body
+        div(class="top-panel")
+            div(class="nav")
+                a(class="active" href="http://localhost:3000")
+                    i(class="fa fa-eercast fa-2x" aria-hidden="true") Home
+                a(class="active" href="http://localhost:3000/editBook/0")
+                    i(class="fa fa-book fa-2x" aria-hidden="true") New Book
+            select(class="filter" onChange="booksFilter(this)")
+                option(class="item") не выбран</option>
+                option(class="item") в наличии</option>
+                option(class="item") по дате возврата</option>
+                option(class="item") показать все</option>
+            div(class="label-filter") Фильтры
+        section(class="books-list")
+            h1 БиблиОтика
+            dialog(class="favDialog")
+                form(method='dialog')
+                    p
+                        label Подтвердить удаление?
+                    div
+                        button(class="cancel") отмена
+                        button(class="confirm" value="confirm") подтвердить
+
+            div(class="books-container")
+                for book in books
+                    div(class="info-card")
+                        a(href="http://localhost:3000/editBook/"+book.id)
+                            div(class="card", id=book.id)
+                                div(class="title") #{book.title}
+                                div(class="author") Автор: #{book.author}
+                                div(class="year") Год издания: #{book.year}
+                                div(class="state") #{book.state}
+                        button(class="delete", id=book.id, onclick="deleteBtnClick("+book.id+")")
+                            i(class="fa fa-trash" aria-hidden="true") удалить
+        script
+            include ../public/javascript/booksListPage.js
