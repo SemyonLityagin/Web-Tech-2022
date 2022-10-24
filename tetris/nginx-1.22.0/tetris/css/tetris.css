@@ -1,0 +1,68 @@
+
+.neonText {
+    color: #fff;
+    animation: flicker 1.5s infinite alternate;
+}
+
+#dplayfield{
+    position: absolute; width: 300px; height: 640px; left: calc(33%)
+}
+
+#dpanel{
+    position: absolute; width: 180px; height: 300px; left: calc(33% + 330px);
+}
+
+body{
+    margin: 0;
+    background-color: #010a01;
+}
+
+#root{
+    padding: 1rem;
+    text-align: center;
+}
+
+h1{
+    height: 40px;
+    width: 100%;
+    font-family: 'Press Start 2P', Consolas, monospace;
+    text-align: center;
+    margin-top: 40px ;
+}
+
+#root label{
+    font-family: 'Press Start 2P', Consolas, monospace;
+}
+
+#root form{
+    height: 200px;
+    alignment-baseline: center;
+    alignment: center;
+}
+
+
+#root #dplayfield #dpanel canvas{
+    display: block;
+    margin: 5px auto;
+}
+
+@keyframes flicker {
+
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+
+        text-shadow:
+                0 0 4px #fff,
+                0 0 11px #fff,
+                0 0 19px #fff,
+                0 0 40px #0fa,
+                0 0 80px #0fa,
+                0 0 90px #0fa,
+                0 0 100px #0fa,
+                0 0 150px #0fa;
+
+    }
+
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
