@@ -1,0 +1,94 @@
+.nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.nav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav a:hover {
+    background-color: #00b300;
+    color: black;
+}
+
+.edit-books {
+    background-color: #d5e2d9;
+    padding: 0.5em 1em 2em;
+    height: 100%;
+}
+
+.edit-books h1 {
+    letter-spacing: 10px;
+    text-align: center;
+    padding: 1em;
+    color: #271739;
+    font-weight: bold;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 20px;
+}
+
+.edit-books .card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1em;
+    width: 50%;
+    font-weight: normal;
+    box-shadow: 0px 10px 5px #b2bec3;
+    text-align: center;
+    font-family: 'Tahoma', sans-serif;
+}
+
+.card .title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.card div {
+    font-size: 14px;
+    margin-bottom: 0.5em;
+}
+
+.card .state {
+    margin-bottom: 0.5em;
+}
+
+button{
+    height: 45px;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 16px;
+    color: #a675b3;
+    background-image: linear-gradient(#3b2751, #271739);
+    box-shadow: 0px 5px 5px #3b2751;
+}
+
+button:hover{
+    box-shadow: 0px 5px 5px #FFbe33;
+}
+
+.edit-container {
+    display: grid;
+    grid-row-gap: 10px;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+input {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    border: none;
+    border-bottom: 3px solid #8f5177;
+    border-radius: 4px;
+}
+
