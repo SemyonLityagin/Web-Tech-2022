@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title dungeon
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Press+Start+2P')
+        script(type="module" src="javascript/objects.js")
+        script(type="module" src="javascript/fabrics/chestFabric.js")
+        script(type="module" src="javascript/fabrics/chestKeyFabric.js")
+        script(type="module" src="javascript/fabrics/dedFabric.js")
+        script(type="module" src="javascript/fabrics/doorFabric.js")
+        script(type="module" src="javascript/fabrics/doorKeyFabric.js")
+        script(type="module" src="javascript/fabrics/exitFabric.js")
+        script(type="module" src="javascript/fabrics/flameFabric.js")
+        script(type="module" src="javascript/fabrics/healFabric.js")
+        script(type="module" src="javascript/fabrics/lightsFabric.js")
+        script(type="module" src="javascript/fabrics/peaksFabric.js")
+        script(type="module" src="javascript/fabrics/playerFabric.js")
+        script(type="module" src="javascript/managers/mapManager.js")
+        script(type="module" src="javascript/managers/spriteManager.js")
+        script(type="module" src="javascript/managers/physicManager.js")
+        script(type="module" src="javascript/managers/eventsManager.js")
+        script(type="module" src="javascript/managers/gameManager.js")
+        link(rel='stylesheet' href='/stylesheets/game.css')
+    body
+        div(class="canvas-div")
+            canvas(width=800, height=600)

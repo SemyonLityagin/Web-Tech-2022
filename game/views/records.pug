@@ -1,0 +1,20 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    title dungeon
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Press+Start+2P')
+    link(rel='stylesheet' href='/stylesheets/game.css')
+body
+    h1 RECORDS
+    div(class="form-div")
+        label PRESS
+        label ENTER TO CONTINUE
+        for rec in records
+            div(class="record") #{rec.id}. #{rec.nickname}: #{rec.score}
+script.
+    document.addEventListener("keydown", (event) => {
+        if(event.keyCode === 13){
+            document.location.replace("start")
+        }
+    })
+

@@ -1,0 +1,16 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    title dungeon
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Press+Start+2P')
+    link(rel='stylesheet' href='/stylesheets/game.css')
+body
+    h1 DUNGEON
+    div(class="form-div")
+        form(class="nick-form" action="game" method="get")
+            label INPUT NICKNAME:
+            br
+            input(class="storage" type="text" required placeholder="NICKNAME")
+            br
+            button(class="start") START
+script(src='/javascript/start.js' type='module')
